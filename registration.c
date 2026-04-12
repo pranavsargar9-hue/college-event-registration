@@ -1,8 +1,29 @@
 #include <stdio.h>
+#include <string.h>
+#define N 10
+typedef struct student
+{
+    int id;
+    char name[50];
+}student;
 
-int main() {
-    printf("College Event Registration System");
-    return 0;
+typedef struct queue
+{
+    student a[N];
+    int front,rear,count;
+}queue;
+
+void enqueue(queue * q,student x)
+{
+    if(q->count == N)
+    {
+        printf("\nRegistrations are full!!\n");
+    }
+    else
+    {
+        q->count++;
+        q->rear = (q->rear + 1) % N;
+        q->a[q->rear] = x;
+        printf("\nRegistration Successful...\n");
+    }
 }
-    printf("pranav gud....");
-    printf("pranav bada gud...");
