@@ -27,3 +27,25 @@ void enqueue(queue * q,student x)
         printf("\nRegistration Successful...\n");
     }
 }
+int isempty(queue*q)
+{
+    if(q->count==0)
+        return 1;
+    else
+        return 0;
+}
+student dequeue(queue*q)
+{
+    student x;
+    x.id=-1;
+    if(isempty(q))
+        return x;
+    else
+    {
+        q->count--;
+        x=q->a[q->front];
+        q->front=[q->front+1]%N;
+        return x;
+    }
+}
+
