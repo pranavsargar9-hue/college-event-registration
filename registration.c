@@ -75,3 +75,67 @@ void display(queue *q)
         }
     }
 }
+
+int main()
+{
+    int ch;
+    student x;
+    queue q;
+
+    q.front=0;
+    q.rear=-1;
+    q.count=0;
+
+    while(1)
+    {
+        printf("\n===== MENU =====");
+        printf("\n1-REGISTER STUDENT");
+        printf("\n2-REMOVE STUDENT");
+        printf("\n3-DISPLAY STUDENTS");
+        printf("\n4-EXIT");
+        printf("\nEnter Choice = ");
+        scanf("%d",&ch);
+
+        if(ch==4)
+            break;
+
+        switch(ch)
+        {
+            case 1:
+            {
+                printf("\nEnter Student ID = ");
+                scanf("%d",&x.id);
+
+                printf("Enter Student Name = ");
+                scanf(" %[^\n]",x.name);
+
+                enqueue(&q,x);
+            }
+            break;
+
+            case 2:
+            {
+                x=dequeue(&q);
+
+                if(x.id==-1)
+                    printf("\nNo Registration Found...");
+                else
+                    printf("\nRemoved Student: %s (ID = %d)",x.name,x.id);
+            }
+            break;
+
+            case 3:
+            {
+                display(&q);
+            }
+            break;
+
+            default:
+            {
+                printf("\nInvalid Choice...");
+            }
+        }
+    }
+
+    return 0;
+}
