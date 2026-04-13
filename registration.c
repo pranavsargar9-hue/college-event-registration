@@ -43,8 +43,8 @@ student dequeue(queue*q)
     else
     {
         q->count--;
-        x=q->a[q->front];
-        q->front=[q->front+1]%N;
+        x=q->a(q->front);
+        q->front=(q->front+1)%N;
         return x;
     }
 }
