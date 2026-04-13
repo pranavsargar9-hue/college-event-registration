@@ -49,3 +49,29 @@ student dequeue(queue*q)
     }
 }
 
+void display(queue *q)
+{
+    int i;
+    if(isempty(q))
+    {
+        printf("\nNo students registered....");
+    }
+    else
+    {
+        printf("\nregistered students:\n");
+        i=q->front;
+        while(1)
+        {
+            printf("\nlD=%d",q->a[i].id);
+            printf("\nName=%s\n",q->a[i].name);
+            if(i==q->rear)
+            {
+                break;
+            }
+            else
+            {
+                i=(i+1)%N;
+            }
+        }
+    }
+}
